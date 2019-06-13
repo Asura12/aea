@@ -18,6 +18,7 @@
 			header('Location: index.php'); 
 		}else{
 			header('Location: error.php?mensaje=El nombre de usuario ya existe');
+			
 		}		
 		
 	}elseif (isset($_POST['entrar'])) { //verifica si la variable entrar está definida
@@ -33,7 +34,7 @@
 		header('Location: index.php');
 		unset($_SESSION['usuario']); //destruye la sesión
 	}
-
+	
 // if (isset($_POST['entrar'])) {
 //     $usuario=$crud->obtenerUsuario($_POST['usuario'],$_POST['pas']);
 //     if ($usuario->getId()!=null) {

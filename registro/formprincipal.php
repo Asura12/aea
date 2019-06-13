@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if (!isset($_SESSION['usuario'])) {
+		header('Location:../admin/index.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +16,17 @@
     <script type="text/javascript" src="../js/funciones.js"> </script>
     <link rel="stylesheet" href="../bootstrap-4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilos.css">
+    
     <title>Document</title>
 </head>
 
 <body>
-    <div id="contenedor">
-        <button class=" btn btn-success" onclick="MformInsertar();">Ingresar Nuevo</button>
-        <button class=" btn btn-success" onclick="Mdatoslistar();">Ingresar registros</button>
+    <div id="contenedor" class="container">
+       <button class=" btn btn-success" id="boton_nuevo" onclick="MformInsertar();">Ingresar Nuevo</button>
+        <button class=" btn btn-success" id="boton_registro" onclick="Mdatoslistar();">Ingresar registros</button>
+     
     </div>
+
     <div id="ventana">
 
     </div>

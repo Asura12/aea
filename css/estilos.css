@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #dbdbdb;
+    background: #faf9f9;
     font-family: 'Open sans';
 }
 
@@ -240,4 +240,47 @@ form.form_contact input[type="button"]:hover{
     width: 100px;
     text-align: center;
     float:none;
+}
+/********************************formulario**/
+#form_tabla{
+    width: 750px;
+    height: 530px;
+    margin: 170px auto;
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+
+}
+#boton_nuevo{
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 15px;
+    /* margin-bottom: 15px; */
+    margin-left: 10px;
+
+}
+#boton_registro{
+   
+   font-size: 20px;
+    display: block;
+    text-align: center;
+    /* margin-bottom: 15px; */
+    margin: 15px;
+    margin-left: 100px;
+}
+#contenedor{
+
+    width: 500px;
+    height: 70px;
+    margin: 70px auto;
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
 }

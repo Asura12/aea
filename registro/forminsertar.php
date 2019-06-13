@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../bootstrap-4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilos.css">
+  
+
     <script type="text/javascript" src="../js/funciones.js"> </script>
     <script type="text/javascript" src="../js/validar.js"> </script>
     <script type="text/javascript" src="../js/jquery-3.4.0.js"></script>
@@ -15,7 +17,7 @@
 
 <body>
 
-    <div id="formulario_insetar">
+    <div id="formulario_insetar" class="container">
         <form autocomplete="off" name="form" id="form" class="form-group col-md-10">
             <div class="form-row">
                 <h3 id="h3_titu">Formulario de Registro de practicantes</h3>

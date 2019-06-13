@@ -22,10 +22,11 @@
 		<h1> ADMIN</h1>
 	</div>
 	<p></p>
-	<form class="w3-container" action="controller_login.php" method="post">
+	<form class="w3-container" action="../registro/formprincipal.php" method="post">
 	<div id="contenedor">
-   <input type="submit" >
-    </div>
+
+	</div>
+		<a href="../registro/formprincipal.php"><input type="submit" value="Enviar" class="btn btn-primary" ></a>
 		<input type="hidden" name="salir" value="salir">
 		<button class="btn btn-danger">Salir</button>
 		

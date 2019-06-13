@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 10/06/2019 12:40:11
+ Date: 13/06/2019 10:39:28
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `detalle_asistencia`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `codPracticante_fk`(`codPracticante_fk`) USING BTREE,
   CONSTRAINT `practicantes -> detalle` FOREIGN KEY (`codPracticante_fk`) REFERENCES `practicantes` (`dni`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for practicantes
@@ -52,14 +52,6 @@ CREATE TABLE `practicantes`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of practicantes
--- ----------------------------
-INSERT INTO `practicantes` VALUES ('70826686', 'chavez', 'chuqui', 'omar', '1999-10-12', 'M', 'T1', 'aea');
-INSERT INTO `practicantes` VALUES ('71061478', 'Trujillo ', 'Ibañez', 'Alexander Piero', '2018-12-02', 'M', 'T1', '');
-INSERT INTO `practicantes` VALUES ('74779087', 'Espinoza', 'Correa', 'Bryan Wilder', '1999-04-24', 'M', 'T2', '');
-INSERT INTO `practicantes` VALUES ('76180544', 'Montalvo', 'Fiestas', 'Cristhofer', '1999-08-24', 'M', 'T1', '');
-
--- ----------------------------
 -- Table structure for turnos
 -- ----------------------------
 DROP TABLE IF EXISTS `turnos`;
@@ -71,12 +63,6 @@ CREATE TABLE `turnos`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of turnos
--- ----------------------------
-INSERT INTO `turnos` VALUES ('T1', 'Turno Mañana', '');
-INSERT INTO `turnos` VALUES ('T2', 'Turno Tarde', '');
-
--- ----------------------------
 -- Table structure for usuarios
 -- ----------------------------
 DROP TABLE IF EXISTS `usuarios`;
@@ -85,17 +71,7 @@ CREATE TABLE `usuarios`  (
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   `clave` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of usuarios
--- ----------------------------
-INSERT INTO `usuarios` VALUES (1, 'omar', '$2y$10$2K.n9TPyCpjVWQeRLHiqq.4Vh8iNgYHqgxpxfTx1nZpLVpVGCNboO');
-INSERT INTO `usuarios` VALUES (2, 'jona', '$2y$10$l77/vVAWKdo.wuG0lbjj8uCNGIP0XC/Ww1F.uL/MvNvRDHSfV9T0C');
-INSERT INTO `usuarios` VALUES (3, 'aeamongol', '$2y$10$mtXFe5DhY5ypZnFyphRlbujWHR1kaaA615yjbDNNskZVN03vpUEFC');
-INSERT INTO `usuarios` VALUES (4, 'neiseromar123', '$2y$10$a8aY14xQebJYowV2twFMs.bZDL2CO7kv7RM.VAvN7lMJzrb9bQJV.');
-INSERT INTO `usuarios` VALUES (5, 'neisero', '$2y$10$aKCb0jr3MIk7TtslOzNIkO440MBmt/f0RF44bYDnyIUSdY1Fd4a32');
-INSERT INTO `usuarios` VALUES (6, 'neiseromar1', '$2y$10$YS/Bw7n9jSf87K3d4S.cWuI404gkgxbGfMGQjL9XI2R9JdFz380pC');
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Procedure structure for horario_dia

@@ -213,10 +213,20 @@ $(document).on("click", "#btn-yola", function (e) {
                            // $("#ventana").html("Procesando...")
                         },
                         success: function (vista) {
-                            swal("Datos insertados correctamente!", {
-                                icon: "success",
-                            });
-                           $("#ventana").html(vista)
+                            if(vista === "0"){
+                                $("#dni").removeClass("is-invalid");
+                                $("#dni").addClass("is-valid");
+                                $("#dni").parent().find("small").remove();
+                               swal("Datos insertados correctamente!", {
+                                    icon: "success",
+                                });
+                               $("#ventana").html(vista)
+                               
+                            }else{
+                                $("#dni").addClass("is-invalid");
+                                $("#dni").parent().append('<small id="passwordHelp" class="text-danger">Este campo existe!</small>');
+                            }
+                            
                         }
                     });
                 } else {
@@ -301,7 +311,7 @@ function Eliminar(cod) {
                             icon: "success",
                         });
                         Mdatoslistar();
-                        //     $("#ventana").html(vista)
+                        //     $("#ventana").html(vista) 
                     }
                 });
 

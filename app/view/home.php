@@ -13,7 +13,7 @@ require_once '../../app/controller/home_controller.php';
     <script type="text/javascript" src="../../js/jquery-3.4.0.js"></script>
     <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="../../js/home.js"></script>
-    
+    <link rel="stylesheet" href="../../css/home.css">
     <link rel="stylesheet" href="../../css/estilos.css">
     <title>Document</title>
 </head>

@@ -19,7 +19,6 @@ foreach ($datos as $fila) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,10 +34,12 @@ foreach ($datos as $fila) {
     <div id="formulario_insetar">
         <form autocomplete="off" name="form" id="form" class="form-group col-md-10">
             <div class="form-row">
+                <input type="hidden" id="cod_tur" value="<?php echo $dcod; ?>">
+                <input type="hidden" id="cod_sex" value="<?php echo $dsex; ?>">
                 <h3 id="h3_titu">Formulario de actualizacion practicantes</h3>
                 <div class="form-group col-md-6">
                     <label>Dni:</label>
-                    <input type="text" class="form-control" name="dni" id="dni" value="<?php echo $ddn; ?>">
+                    <input type="text" class="form-control" name="dni" id="dni" maxlength="8" disabled="true"  value="<?php echo $ddn; ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>A. Paterno:</label>
@@ -63,8 +64,8 @@ foreach ($datos as $fila) {
                 </div>
                 <div class="form-group col-md-6">
                     <label>Género:</label>
-                    <select type="text" class="form-control" name="s" id="s" value="<?php echo $dsex; ?>">
-                        <option>Seleccione su género</option>
+                    <select type="text" class="form-control" name="s" id="s" >
+                        <option value="">Seleccione su género</option>
                         <option value="M">M</option>
                         <option value="F">F</option>
                     </select>
@@ -73,19 +74,19 @@ foreach ($datos as $fila) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>CodTurno:</label>
-                    <select type="text" class="form-control" name="ct" id="ct" value="<?php echo $dcod; ?>">
-                        <option>Seleccione su código</option>
+                    <select type="text" class="form-control" name="ct" id="ct" >
+                        <option value="">Seleccione su código</option>
                         <option value="T1">T1</option>
                         <option value="T2">T2</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Descripción:</label>
-                    <textarea type="text" class="form-control" name="descripcion" id="descripcion" value="<?php echo $ddes; ?>"></textarea>
+                    <textarea type="text" class="form-control" name="descripcion" id="descripcion" ><?php echo $ddes; ?></textarea>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit" id="btn-yola" onclick="Modificarregistro();">Aceptar</button>
-            <button class="btn  btn-danger" type="submit" id="btn-salir">Volver</button>
+            <button class="btn btn-primary" type="submit" id="btn-hola" >Aceptar</button>
+            <button class="btn  btn-danger" type="button" id="btn-salir">Volver</button>
         </form>
 
     </div>
@@ -94,3 +95,10 @@ foreach ($datos as $fila) {
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function(){
+        $("#ct").val($("#cod_tur").val());
+        $("#s").val($("#cod_sex").val());
+    })
+</script>

@@ -22,7 +22,7 @@
                 <h3 id="h3_titu">Formulario de Registro de practicantes</h3>
                 <div class="form-group col-md-6">
                     <label>Dni:</label>
-                    <input type="text" class="form-control" name="dni"  id="dni"  placeholder="Escriba dni..." maxlength="8">
+                    <input type="text" class="form-control" name="dni"  id="dni"  placeholder="Escriba dni..." maxlength="8" >
                     
                 </div>
                 <div class="form-group col-md-6">

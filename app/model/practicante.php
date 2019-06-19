@@ -16,20 +16,23 @@ class Practicante
     public function verPracticantes(){
       
         $mysqli=DB::conectar();
-        $stm=$mysqli->prepare("call listaAlumnos()");
+        $stm=$mysqli->prepare("call listaAlumnos()"); 
         /* QUERY */
         $stm->execute();
       //  $rs=$stm->get_result();
         $array=[];
         foreach($stm as $row){
-            $array[]=$row;
+           /* echo $row["dni"];
+            echo "<br>";*/
+         $array[]=$row;
         }
+       
         /*
         $array=[];
         while ($myrow = $rs->fetch_assoc()) {
             $array[]=$myrow;
         }*/
-        return $array;
+       return $array;
     }
     public function marcarAsistencia($accion){
        

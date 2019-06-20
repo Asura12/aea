@@ -77,7 +77,7 @@ unset($_SESSION['usuario']);
           
         <button class="btn btn-primary"  >Enviar</button>
         </p>
-		<p>Si aún no tienes cuenta ve al siguiente link <a href="registrarse.php">Registrarse</a></p>
+	
 	</form>
     </div>
   </div>

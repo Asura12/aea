@@ -1,0 +1,37 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#contenedor_cuenta{
+margin: auto;
+margin-top: 50px;
+width: 900px;
+height: 800px;
+background-color: aquamarine;
+
+}
+#img_primera{
+    width: 500px;
+    height: 300px;
+    float: right;
+}
+img{
+    width:500px;
+    padding: 2px;
+    height: 300px;
+    background-color: bisque;
+    border: solid;
+    border-radius: 10px;
+}
+#esto{
+    width: 640px;
+    height: 300px;
+    background-color: black
+
+}
+#botones{
+    border-bottom-color: azure ;
+    border: solid springgreen 20px;;
+    padding: 20px;
+    align-items: center;
+}

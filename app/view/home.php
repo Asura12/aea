@@ -16,11 +16,17 @@ require_once '../../app/controller/home_controller.php';
     <link rel="stylesheet" href="../../css/home.css">
     <link rel="stylesheet" href="../../css/estilos.css">
     <title>Document</title>
+<<<<<<< HEAD
    
 </head>
 
 <body>
     
+=======
+</head>
+
+<body>
+>>>>>>> ebab4aeeb3a7f23a16034bc5b1ec880d1ce5fd90
     <div class="main col-xl-11 col-md-12 col-12 row">
         <div class="contenedor col-xl-6">
             <div class="formulario-marcar">

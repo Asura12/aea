@@ -20,19 +20,21 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 
 <body>
-	<div class="w3-container w3-black w3-center">
-		<h1 > ADMIN</h1>
-	</div>
+	
 	<div id="contenedor_cuenta" class="jumbotron jumbotron-fluid">
-		<h1 id="tit" class="display-4">Presentación</h1>
+		<h1 id="tit" class="display-4">Usuarios</h1>
 		<div id="img_primera">
 			<img src="../user.png" alt="">
 		</div>
 		<div id="esto">
-			<P>AJASLDAasdsadad
-				ssadasdsaad
-			</P>
-			
+			<span>
+				Buenos dias señores, en esta oportunidad quiero venir a presentar este pequeño proyecto hecho en la Universidad Nacional de Ingenieria-UNI. 
+				El proyecto presente es, un sistema de asistencia de practicantes o/y empleados de OERAAE con el cual quiero dar a conocer el proyecto final.
+				<br>
+				<br>
+				Gracias !
+				
+			</span>			
 		</div>
 		<div id="botones">
 			<a href="../registro/formprincipal.php"><input type="submit" value="Ingresar al formulario" class="btn btn-primary"></a>

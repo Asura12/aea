@@ -2,6 +2,11 @@
 <?php 
 require_once '../../app/controller/home_controller.php';
 
+
+session_start();
+if (!isset($_SESSION['usuario'])) {
+	header('Location:../../admin/index.php');
+}
 ?>
 <html lang="en">
 

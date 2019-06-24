@@ -18,9 +18,12 @@
     <link rel="stylesheet" href="../css/estilos.css">
     <script src="../js/sweetalert.min.js"></script>
     <title>Document</title>
+
 </head>
 
+
 <body>
+    
     <div id="contenedor" class="container">
        <button class=" btn btn-success" id="boton_nuevo" onclick="MformInsertar();">Ingresar Nuevo</button>
        

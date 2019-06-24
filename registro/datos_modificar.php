@@ -23,8 +23,8 @@ $resultado->bindValue("ddes",$ddes);
 $resultado->execute();
 
 if($resultado){     
-echo "Registrado correctamente";
+// echo "Registrado correctamente";
 
 }else{  
-     echo "No registrado correctamente";
+     // echo "No registrado correctamente";
 }

@@ -30,7 +30,7 @@ if($rs["total"] === "0"){
      if ($resultado) {
           echo $rs["total"];
      } else {
-          echo "No registrado correctamente";
+          // echo "No registrado correctamente";
      }
 }else{  
      echo $rs["total"];

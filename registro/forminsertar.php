@@ -70,7 +70,7 @@
                 </div>
             </div>
             <button class="btn btn-primary" type="submit" id="btn-yola">Enviar</button>
-            <button class="btn  btn-danger" type="button" id="btn-salir">Volver</button>
+           
         </form>
 
     </div>

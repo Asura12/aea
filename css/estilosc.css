@@ -1,7 +1,15 @@
 *{
     margin:0px;
     padding:0px;
+   
 }
+body{
+    background: url(../ase.jpg) no-repeat center center fixed  ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}   
 #contenedor_cuenta{
 margin: auto;
 margin-top: 50px;
@@ -55,7 +63,23 @@ img{
     font-size: 80px;
 }
 
-#cabe{
 
-   
+#form_login{
+    width: 400px;
+    height: 450px;
+    margin: 100px auto;
+    padding: 5px;
+
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    align-content: center;
+    justify-content: center
+
+}
+#tit_res{
+    padding-bottom: 30px;
+    
 }

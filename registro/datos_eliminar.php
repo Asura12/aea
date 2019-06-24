@@ -6,7 +6,7 @@ $ddn = $_POST["dn"];
 
 $datos = $mysql->query("call pc_eliminar('$ddn') ");
 if ($datos){
-echo "Eliminado correctamente";
+// echo "Eliminado correctamente";
 
 }
 else{

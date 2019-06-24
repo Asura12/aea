@@ -5,8 +5,13 @@
 }
 
 body {
-    background: #faf9f9;
+    /* background: #faf9f9; */
     font-family: 'Open sans';
+    background: url(../ase.jpg) no-repeat center center fixed  ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .formulario {
@@ -41,7 +46,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('../fond.jpg');
+    background-image: url('../UNI.png');
     background-size: cover;
     background-position: center center;
 }
@@ -210,14 +215,16 @@ form.form_contact input[type="button"]:hover{
    
     width: 680px;
     height: 600px;
-    margin: 150px auto;
+    margin: 100px auto;
     padding: 5px;
+
     display: flex;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     align-content: center;
+    justify-content: center
     
 }
 #h3_titu{
@@ -291,5 +298,13 @@ form.form_contact input[type="button"]:hover{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+#botonnn{
+    padding-top: 20px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
 
 }

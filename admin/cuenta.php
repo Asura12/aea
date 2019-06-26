@@ -29,7 +29,7 @@ if (!isset($_SESSION['usuario'])) {
 		<div id="esto">
 			<span>
 				Buenos dias señores, en esta oportunidad quiero venir a presentar este pequeño proyecto hecho en la Universidad Nacional de Ingenieria-UNI. 
-				El proyecto presente es, un sistema de asistencia de practicantes o/y empleados de OERAAE con el cual quiero dar a conocer el proyecto final.
+				El proyecto presente es, un sistema de asistencia de practicantes o/y empleados de OERAAE con el cual quiero dar a conocer el proyecto .
 				<br>
 				<br>
 				Gracias !

@@ -76,8 +76,8 @@ foreach ($datos as $fila) {
                     <label>CodTurno:</label>
                     <select type="text" class="form-control" name="ct" id="ct" >
                         <option value="">Seleccione su código</option>
-                        <option value="T1">T1</option>
-                        <option value="T2">T2</option>
+                        <option value="1">T1</option>
+                        <option value="2">T2</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -86,7 +86,7 @@ foreach ($datos as $fila) {
                 </div>
             </div>
             <button class="btn btn-primary" type="submit" id="btn-hola" >Aceptar</button>
-            <button class="btn  btn-danger" type="button" id="btn-salir">Volver</button>
+            <a href="datos_listar.php"><input  type="submit" value="Volver " class="btn btn-danger"></a>
         </form>
 
     </div>

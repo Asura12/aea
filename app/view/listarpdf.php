@@ -18,15 +18,7 @@ ob_start();
     <title>Document</title>
 </head>
 <style>
-    table {
-   width: 100%;
-   border: 1px solid #999;
-   text-align: left;
-   border-collapse: collapse;
-   margin: 0 0 1em 0;
-   caption-side: top;
-   font-family: 'Open sans';
-}   
+  
 caption, td, th {
    padding: 0.3em;
 }
@@ -44,6 +36,13 @@ height: 530px;
 margin: 70px auto;
 border-radius: 10px;
 overflow: hidden;
+width: 100%;
+   border: 1px solid #999;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+   font-family: 'Open sans';
 }
 h1{text-align: center;
 }
@@ -76,7 +75,7 @@ h1{text-align: center;
         <tbody>
     <?php
     $mysql=DB::conectar();
-    $tabla=$mysql->query("SELECT dni,CONCAT(apePaterno,' ',apeMaterno,', ',nombres)as nomCompleto,fecha,horEntrada,horSalida FROM practicantes p left join detalle_asistencia d on p.dni=d.codPracticante_fk where fecha=DATE_FORMAT(NOW(), '%Y-%m-%d') or fecha<=>null");
+    $tabla=$mysql->query("SELECT dni,CONCAT(apePaterno,' ',apeMaterno,', ',nombres)as nomCompleto,fecha,horEntrada,horSalida,estado FROM practicantes p left join detalle_asistencia d on p.dni=d.codPracticante_fk where  /*estado=1 AND */ fecha=DATE_FORMAT(NOW(), '%Y-%m-%d') or fecha<=>null");
 foreach ($tabla as $dato) {
     echo "<tr >";
     echo "<td >" . $dato['dni'] . "</td>";

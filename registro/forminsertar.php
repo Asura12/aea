@@ -60,8 +60,8 @@
                     <label>CodTurno:</label>
                     <select type="text" class="form-control" name="ct" id="ct" placeholder="Seleccione género...">
                         <option value="">Seleccione su código</option>
-                        <option value="T1">T1</option>
-                        <option value="T2">T2</option>
+                        <option value="1">T1</option>
+                        <option value="2">T2</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">

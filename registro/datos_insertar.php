@@ -8,6 +8,7 @@ $resultado=$mysql->query("SELECT Count(*) as total FROM practicantes where dni =
 $rs = $resultado->fetch(PDO::FETCH_ASSOC);
 
 if($rs["total"] === "0"){
+     
      $ddn = $_POST['dn'];
      $dap = $_POST['ap'];
      $dam = $_POST['am'];

@@ -213,7 +213,7 @@ $(document).on("click", "#btn-yola", function (e) {
                             // $("#ventana").html("Procesando...")
                         },
                         success: function (vista) {
-                            if (vista === "0") {
+                            if (vista.trim() === "0") {
                                 $("#dni").removeClass("is-invalid");
                                 $("#dni").addClass("is-valid");
                                 $("#dni").parent().find("small").remove();

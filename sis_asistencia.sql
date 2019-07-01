@@ -3,15 +3,15 @@
 
  Source Server         : omar
  Source Server Type    : MySQL
- Source Server Version : 80015
+ Source Server Version : 100315
  Source Host           : localhost:3306
  Source Schema         : sis_asistencia
 
  Target Server Type    : MySQL
- Target Server Version : 80015
+ Target Server Version : 100315
  File Encoding         : 65001
 
- Date: 19/06/2019 13:44:13
+ Date: 01/07/2019 13:51:29
 */
 
 SET NAMES utf8mb4;
@@ -28,10 +28,18 @@ CREATE TABLE `detalle_asistencia`  (
   `horEntrada` time(0) NULL DEFAULT NULL,
   `horSalida` time(0) NULL DEFAULT NULL,
   `horTotales` double NULL DEFAULT NULL,
+  `estado` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `codPracticante_fk`(`codPracticante_fk`) USING BTREE,
   CONSTRAINT `practicantes -> detalle` FOREIGN KEY (`codPracticante_fk`) REFERENCES `practicantes` (`dni`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of detalle_asistencia
+-- ----------------------------
+INSERT INTO `detalle_asistencia` VALUES (57, '78888888', '2019-07-01', '09:36:43', '09:37:33', NULL, NULL);
+INSERT INTO `detalle_asistencia` VALUES (58, '12343434', '2019-07-01', '09:37:29', '09:37:30', NULL, NULL);
+INSERT INTO `detalle_asistencia` VALUES (60, '11231312', '2019-07-01', '13:31:43', '13:31:47', NULL, 1);
 
 -- ----------------------------
 -- Table structure for practicantes
@@ -52,6 +60,13 @@ CREATE TABLE `practicantes`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of practicantes
+-- ----------------------------
+INSERT INTO `practicantes` VALUES ('11231312', 'addadadaaa', 'aaaaaaaa', 'aaaa', '2019-07-01', 'M', '2', '');
+INSERT INTO `practicantes` VALUES ('12343434', 'asdsad', 'adsa', 'adas', '2019-07-01', 'M', '1', '');
+INSERT INTO `practicantes` VALUES ('78888888', 'dsdse', '4rwe', 'vgv', '2019-07-01', 'M', '1', '');
+
+-- ----------------------------
 -- Table structure for turnos
 -- ----------------------------
 DROP TABLE IF EXISTS `turnos`;
@@ -63,6 +78,12 @@ CREATE TABLE `turnos`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of turnos
+-- ----------------------------
+INSERT INTO `turnos` VALUES ('1', 'T1', '');
+INSERT INTO `turnos` VALUES ('2', 'T2', '');
+
+-- ----------------------------
 -- Table structure for usuarios
 -- ----------------------------
 DROP TABLE IF EXISTS `usuarios`;
@@ -71,7 +92,12 @@ CREATE TABLE `usuarios`  (
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   `clave` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of usuarios
+-- ----------------------------
+INSERT INTO `usuarios` VALUES (7, 'omar123', '$2y$10$LpBtq.C2hO2K9C/8caLzju2UTqgDHyNg9uld4kbiVIP6lEA869gYi');
 
 -- ----------------------------
 -- Procedure structure for horario_dia
@@ -107,9 +133,10 @@ delimiter ;;
 CREATE PROCEDURE `marcarAsistencia`(`codigo` CHAR(8), `accion` VARCHAR(100))
 BEGIN
 if(accion="ingreso") then
-insert into detalle_asistencia(codPracticante_fk,fecha,horEntrada) value(codigo,DATE_FORMAT(NOW(), "%Y-%m-%d"),DATE_FORMAT(NOW(), "%h:%i:%s"));
+insert into detalle_asistencia(codPracticante_fk,fecha,horEntrada,estado) value(codigo,DATE_FORMAT(NOW(), "%Y-%m-%d"),DATE_FORMAT(NOW(), "%H:%i:%s"),
+if(DATE_FORMAT(NOW(), "%H:%i:%s")> "08:05:00",1,0));
 elseif (accion="salida") then
-update detalle_asistencia set horSalida=DATE_FORMAT(NOW(), "%h:%i:%s") where codPracticante_fk=codigo;
+update detalle_asistencia set horSalida=DATE_FORMAT(NOW(), "%H:%i:%s") where codPracticante_fk=codigo;
 end if;
 END
 ;;

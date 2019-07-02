@@ -30,7 +30,7 @@ $(document).on('click', '#div-button-ingreso button', function () {
         $.ajax({
             url: '../../ajax/registrar_entrada_salida.php',
             dataType: 'Json',
-            data: {hora:hora,codigo:codigo},
+            data: {hora:hora,codigo:codigo,tipo:"entrada"},
             method: 'POST',
         }).done(function (data) {
             if(data==1){
@@ -47,7 +47,7 @@ $(document).on('click', '#div-button-salida button', function () {
         $.ajax({
             url: '../../ajax/registrar_entrada_salida.php',
             dataType: 'Json',
-            data: {hora:hora,codigo:codigo},
+            data: {hora:hora,codigo:codigo,tipo:"salida"},
             method: 'POST',
         }).done(function (data) {
             if(data==1){
@@ -83,3 +83,4 @@ function obtenerHorarioDia() {
         
     })
 }
+

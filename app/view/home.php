@@ -89,8 +89,12 @@ if (!isset($_SESSION['usuario'])) {
             </div>
             <div id="botonnn">
             <a href="../../admin/cuenta.php" ><input type="submit" value="Salir a menu principal" class="btn btn-danger"></a>
-            <a href="listarpdf.php"><input type="submit" value="Documento pdf" class="btn btn-danger"></a>
 
+            <a href="listarpdf.php"><input type="submit" value="Documento pdf" class="btn btn-danger"></a>
+            
+            <a href="justificarpdf.php"><input type="submit" value="Tardanza pdf" class="btn btn-danger"></a>
+
+            <a href="totalpdf.php"><input type="submit" value="Horas totales pdf" class="btn btn-danger"></a>
             </div>
         </div>
     </div>

@@ -54,7 +54,7 @@ border-radius: 10px;
 overflow: hidden;
 width: 100%;
    border: 1px solid #999;
-   text-align: left;
+   text-align: center;
    border-collapse: collapse;
    margin: 0 0 1em 0;
    caption-side: top;
@@ -75,7 +75,7 @@ h2{
     </div> 
     <div>
  <h2>REPORTE TARDANZA </h2>
-    <table border ='1' class=' table ' id ='tbxd'>
+    <table class=' table ' id ='tbxd'>
         <thead class='thead-dark'>
             <tr>
         <th scope='col '>DNI</th>

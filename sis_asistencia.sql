@@ -11,7 +11,7 @@
  Target Server Version : 100315
  File Encoding         : 65001
 
- Date: 01/07/2019 13:51:29
+ Date: 02/07/2019 11:47:54
 */
 
 SET NAMES utf8mb4;
@@ -27,19 +27,12 @@ CREATE TABLE `detalle_asistencia`  (
   `fecha` date NULL DEFAULT NULL,
   `horEntrada` time(0) NULL DEFAULT NULL,
   `horSalida` time(0) NULL DEFAULT NULL,
-  `horTotales` double NULL DEFAULT NULL,
+  `horTotales` time(0) NULL DEFAULT NULL,
   `estado` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `codPracticante_fk`(`codPracticante_fk`) USING BTREE,
   CONSTRAINT `practicantes -> detalle` FOREIGN KEY (`codPracticante_fk`) REFERENCES `practicantes` (`dni`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of detalle_asistencia
--- ----------------------------
-INSERT INTO `detalle_asistencia` VALUES (57, '78888888', '2019-07-01', '09:36:43', '09:37:33', NULL, NULL);
-INSERT INTO `detalle_asistencia` VALUES (58, '12343434', '2019-07-01', '09:37:29', '09:37:30', NULL, NULL);
-INSERT INTO `detalle_asistencia` VALUES (60, '11231312', '2019-07-01', '13:31:43', '13:31:47', NULL, 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for practicantes
@@ -62,9 +55,7 @@ CREATE TABLE `practicantes`  (
 -- ----------------------------
 -- Records of practicantes
 -- ----------------------------
-INSERT INTO `practicantes` VALUES ('11231312', 'addadadaaa', 'aaaaaaaa', 'aaaa', '2019-07-01', 'M', '2', '');
-INSERT INTO `practicantes` VALUES ('12343434', 'asdsad', 'adsa', 'adas', '2019-07-01', 'M', '1', '');
-INSERT INTO `practicantes` VALUES ('78888888', 'dsdse', '4rwe', 'vgv', '2019-07-01', 'M', '1', '');
+INSERT INTO `practicantes` VALUES ('70826686', 'Chavez', 'Chuqui', 'Neiser Omar', '1999-10-11', 'M', '1', '');
 
 -- ----------------------------
 -- Table structure for turnos
@@ -130,13 +121,13 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `marcarAsistencia`;
 delimiter ;;
-CREATE PROCEDURE `marcarAsistencia`(`codigo` CHAR(8), `accion` VARCHAR(100))
+CREATE PROCEDURE `marcarAsistencia`(`codigo` CHAR(8), `accion` VARCHAR(100), `horaE` VARCHAR(20))
 BEGIN
 if(accion="ingreso") then
 insert into detalle_asistencia(codPracticante_fk,fecha,horEntrada,estado) value(codigo,DATE_FORMAT(NOW(), "%Y-%m-%d"),DATE_FORMAT(NOW(), "%H:%i:%s"),
 if(DATE_FORMAT(NOW(), "%H:%i:%s")> "08:05:00",1,0));
 elseif (accion="salida") then
-update detalle_asistencia set horSalida=DATE_FORMAT(NOW(), "%H:%i:%s") where codPracticante_fk=codigo;
+update detalle_asistencia set horSalida=DATE_FORMAT(NOW(), "%H:%i:%s"),horTotales=TIMEDIFF(DATE_FORMAT(NOW(),"%H:%i:%s"),horaE) where codPracticante_fk=codigo;
 end if;
 END
 ;;
@@ -200,6 +191,19 @@ codTurno_fk=codTurno_fk,
 descripcion=descripcion
 WHERE
 dn=dni;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for sp_asistencia_apoyo_suma_horTotales
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_asistencia_apoyo_suma_horTotales`;
+delimiter ;;
+CREATE PROCEDURE `sp_asistencia_apoyo_suma_horTotales`()
+BEGIN
+SELECT d.codPracticante_fk,CONCAT(apePaterno,' ',apeMaterno,', ',nombres)as nomCompleto,SEC_TO_TIME(SUM(TIME_TO_SEC(d.horTotales)))as horas FROM practicantes p INNER join detalle_asistencia d on p.dni=d.codPracticante_fk 
+GROUP BY codPracticante_fk;
 END
 ;;
 delimiter ;

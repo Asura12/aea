@@ -6,7 +6,6 @@ setlocale(LC_TIME, 'es_ES.UTF-8');
 date_default_timezone_set('America/Bogota');
 ob_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +13,27 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
     <title>Document</title>
 </head>
+
 <style>
+    h1 {
+        text-align: center;
+        align-items: center;
+        font-family: 'Open sans';
+        padding-top: 30px;
+    }
+
+    #img_uni {
+        flex: right;
+        height: 100px;
+        width: 80px;
+        position: relative;
+        float: right;
+
+
+    }
+
     caption,
     td,
     th {
@@ -51,57 +66,50 @@ ob_start();
         font-family: 'Open sans';
     }
 
-    h1 {
+    h2 {
+        padding: 20px;
         text-align: center;
-    }
+        font-family: 'Open sans';
 
-    #imagen {
-        padding: 0px;
-        margin: 5px;
-        float: right;
-        width: 100px;
-    }
-
-    #tab_x {
-        text-align: center;
     }
 </style>
 
 <body>
     <div id="">
-        <div id="xxxx">
-            <h1 id="titur"> <img id="imagen" src="../../UNI.png" alt="mmm">Reporte de Lista de todos los practicante </h1>
+        <img id="img_uni" src="../../UNI.png" alt="mmm">
+        <h1>Lista de Horas totales
 
-
-        </div>
-        <h2 id="tab_x">Tabla de practicantes de OERAAE</h2>
-        <table  class=' table ' id='tbxd'>
+        </h1>
+    </div>
+   
+    <div>
+        <table  id="tbxd">
             <thead class='thead-dark'>
                 <tr>
-                    <th scope='col '>DNI</th>
-                    <th scope='col'>Nombres</th>
-                    <th scope='col'>Hora llegada</th>
-                    <th scope='col'>Hora salida</th>
+                    <th scope='col ' >Codigo</th>
+                    <th scope='col '>Nombre Completo</th>
+                    <th scope='col '>Horas</th>
                 </tr>
-            </thead>
+            </thead>   
             <tbody>
-                <?php
-                $mysql = DB::conectar();
-                $tabla = $mysql->query("SELECT dni,CONCAT(apePaterno,' ',apeMaterno,', ',nombres)as nomCompleto,fecha,horEntrada,horSalida,estado FROM practicantes p left join detalle_asistencia d on p.dni=d.codPracticante_fk where  /*estado=1 AND */ fecha=DATE_FORMAT(NOW(), '%Y-%m-%d') or fecha<=>null");
-                foreach ($tabla as $dato) {
-                    echo "<tr >";
-                    echo "<td >" . $dato['dni'] . "</td>";
-                    echo "<td >" . $dato['nomCompleto'] . "</td>";
-                    echo "<td >" . $dato['horEntrada'] . "</td>";
-                    echo "<td >" . $dato['horSalida'] . "</td>";
-                    echo "</tr>";
-                }
+         <?php
+         
+          $mysql=DB::conectar();
+         $ts=$mysql->prepare("call sp_asistencia_apoyo_suma_horTotales()");
+         $ts->execute();
+            foreach ($ts as $valor) {
+            ?>
+         <tr>
+                    <td ><?php echo $valor["codPracticante_fk"]?></td>
+                    <td><?php echo $valor["nomCompleto"]?></td>
+                    <td><?php echo $valor["horas"]?></td>
+                </tr>
 
-                ?>
-            </tbody>
-        </table>
+ <?php           }
+        ?>
+        </tbody>
+        </table> 
     </div>
-
 </body>
 
 </html>

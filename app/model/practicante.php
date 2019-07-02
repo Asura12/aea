@@ -34,12 +34,20 @@ class Practicante
         }*/
        return $array;
     }
-    public function marcarAsistencia($accion){
-       
+    public function marcarAsistencia($accion,$tipo){
+        $horaEntradaHoy = "";
         $mysqli= DB::conectar();
-        $stm=$mysqli->prepare("call marcarAsistencia(:codigo,:accion)");
+        if($tipo == "salida"){
+            $sss=$mysqli->query("SELECT *from detalle_asistencia where codPracticante_fk ='".$this->dni . "' ORDER BY id desc limit 1");
+
+            foreach($sss as $fila){
+                $horaEntradaHoy = $fila["horEntrada"];
+            }
+        }
+        $stm=$mysqli->prepare("call marcarAsistencia(:codigo,:accion,:horaE)");
         $stm->bindValue("accion",$accion);
         $stm->bindValue("codigo",$this->dni);
+        $stm->bindValue("horaE",$horaEntradaHoy);
         $stm->execute();
         //$rs=$stm->get_result();
         if(!$stm){
